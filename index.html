@@ -2,763 +2,1241 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-          content="Abhiraj Kumar - Diploma Computer Science Engineering Student, Web Developer and AI/ML Enthusiast.">
+          content="Abhiraj Kumar - Diploma Computer Science Engineering Student Portfolio">
 
     <meta name="author" content="Abhiraj Kumar">
 
     <title>Abhiraj Kumar | CSE Student & Developer</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
 
-    <!-- Icons -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b1120;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(11, 17, 32, 0.95);
+            border-bottom: 1px solid #243047;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 16px 25px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+            color: #60a5fa;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #d1d5db;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #60a5fa;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        /* ================= COMMON ================= */
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 0 25px;
+        }
+
+        section {
+            padding: 85px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            color: #f8fafc;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #94a3b8;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text .small-text {
+            color: #60a5fa;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .hero-text h1 {
+            font-size: 55px;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .hero-text h1 span {
+            color: #60a5fa;
+        }
+
+        .hero-text h3 {
+            font-size: 25px;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            max-width: 650px;
+            color: #94a3b8;
+            font-size: 17px;
+            margin-bottom: 28px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+            border: 1px solid #60a5fa;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            color: #60a5fa;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: #1e3a8a;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #2563eb;
+            box-shadow: 0 0 40px rgba(37, 99, 235, 0.3);
+            flex-shrink: 0;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about-box {
+            background: #111827;
+            border: 1px solid #243047;
+            border-radius: 15px;
+            padding: 35px;
+        }
+
+        .about-box p {
+            color: #cbd5e1;
+            font-size: 17px;
+            margin-bottom: 18px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .info-item {
+            background: #0f172a;
+            border: 1px solid #243047;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .info-item strong {
+            color: #60a5fa;
+        }
+
+        /* ================= EDUCATION ================= */
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .education-card {
+            background: #111827;
+            border: 1px solid #243047;
+            border-radius: 15px;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+        }
+
+        .education-card h3 {
+            color: #60a5fa;
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .education-card h4 {
+            color: #f8fafc;
+            margin-bottom: 8px;
+        }
+
+        .education-card p {
+            color: #94a3b8;
+            margin-bottom: 6px;
+        }
+
+        .marks {
+            color: #22c55e !important;
+            font-weight: bold;
+        }
+
+        /* ================= SEMESTER ================= */
+
+        .semester-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .semester-card {
+            text-align: center;
+            padding: 25px 15px;
+            background: #111827;
+            border: 1px solid #243047;
+            border-radius: 12px;
+        }
+
+        .semester-card h3 {
+            color: #94a3b8;
+            margin-bottom: 8px;
+        }
+
+        .semester-card .sgpa {
+            font-size: 30px;
+            font-weight: bold;
+            color: #60a5fa;
+        }
+
+        /* ================= SKILLS ================= */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .skill {
+            background: #111827;
+            border: 1px solid #243047;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            color: #dbeafe;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-4px);
+            border-color: #3b82f6;
+            color: #60a5fa;
+        }
+
+        /* ================= PROJECTS ================= */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            background: #111827;
+            border: 1px solid #243047;
+            border-radius: 15px;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+        }
+
+        .project-card h3 {
+            color: #60a5fa;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: #94a3b8;
+            margin-bottom: 18px;
+        }
+
+        /* ================= RESUME ================= */
+
+        .resume-box {
+            text-align: center;
+            background: #111827;
+            border: 1px solid #243047;
+            border-radius: 15px;
+            padding: 45px 25px;
+        }
+
+        .resume-box h2 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .resume-box p {
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .contact-card {
+            text-align: center;
+            background: #111827;
+            border: 1px solid #243047;
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .contact-card h3 {
+            color: #60a5fa;
+            margin-bottom: 8px;
+        }
+
+        .contact-card p {
+            color: #cbd5e1;
+            word-break: break-word;
+        }
+
+        .contact-card a:hover {
+            color: #60a5fa;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid #243047;
+            color: #64748b;
+        }
+
+        footer span {
+            color: #60a5fa;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 850px) {
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: #0b1120;
+                flex-direction: column;
+                padding: 20px 25px;
+                border-bottom: 1px solid #243047;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                width: 220px;
+                height: 220px;
+            }
+
+            .education-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .semester-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            section {
+                padding: 60px 0;
+            }
+
+            .container {
+                padding: 0 18px;
+            }
+
+            .hero-text h1 {
+                font-size: 35px;
+            }
+
+            .hero-text h3 {
+                font-size: 20px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .semester-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-box {
+                padding: 22px;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+    <!-- ================= NAVBAR ================= -->
 
-<header class="navbar">
-    <div class="container nav-container">
+    <nav>
+        <div class="nav-container">
 
-        <a href="#home" class="logo">
-            Abhiraj<span>.</span>
-        </a>
-
-        <nav id="navMenu">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#education">Education</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#experience">Experience</a>
-            <a href="#certifications">Certificates</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
-        <div class="nav-actions">
-            <button id="themeBtn" aria-label="Toggle theme">
-                <i class="fa-solid fa-moon"></i>
-            </button>
-
-            <button id="menuBtn" aria-label="Open menu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-
-    </div>
-</header>
-
-
-<!-- ================= HERO ================= -->
-
-<section id="home" class="hero">
-
-    <div class="container hero-container">
-
-        <div class="hero-content">
-
-            <p class="hero-small">
-                Hello, I'm
-            </p>
-
-            <h1>
-                Abhiraj <span>Kumar</span>
-            </h1>
-
-            <h2>
-                Diploma CSE Student
-                <span>|</span>
-                Web Developer
-                <span>|</span>
-                AI/ML Enthusiast
-            </h2>
-
-            <p class="hero-description">
-                I am a Computer Science Engineering student passionate about
-                software development, web technologies and Artificial Intelligence.
-                I enjoy building practical projects and continuously improving
-                my programming skills.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a
-                    href="mailto:kumarabhiraj05981@gmail.com"
-                    class="btn primary-btn"
-                >
-                    <i class="fa-solid fa-envelope"></i>
-                    Contact Me
-                </a>
-
-                <a
-                    href="resume.pdf"
-                    class="btn secondary-btn"
-                    target="_blank"
-                >
-                    <i class="fa-solid fa-file-arrow-down"></i>
-                    Resume
-                </a>
-
+            <div class="logo">
+                Abhiraj Kumar
             </div>
 
-            <div class="social-links">
-
-                <a
-                    href="https://github.com/kumarabhiraj05981-dot"
-                    target="_blank"
-                    aria-label="GitHub"
-                >
-                    <i class="fa-brands fa-github"></i>
-                </a>
-
-                <a
-                    href="https://www.linkedin.com/in/abhiraj-kumar-2a869a3b1/"
-                    target="_blank"
-                    aria-label="LinkedIn"
-                >
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-
-                <a
-                    href="https://leetcode.com/u/MR_ABHIRAJ_KUMAR/"
-                    target="_blank"
-                    aria-label="LeetCode"
-                >
-                    <i class="fa-solid fa-code"></i>
-                </a>
-
-                <a
-                    href="mailto:kumarabhiraj05981@gmail.com"
-                    aria-label="Email"
-                >
-                    <i class="fa-solid fa-envelope"></i>
-                </a>
-
+            <div class="menu-btn" onclick="toggleMenu()">
+                ☰
             </div>
+
+            <ul class="nav-links" id="navLinks">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#education">Education</a>
+                </li>
+
+                <li>
+                    <a href="#skills">Skills</a>
+                </li>
+
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
+
+                <li>
+                    <a href="#resume">Resume</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+            </ul>
 
         </div>
-
-        <div class="hero-card">
-
-            <div class="profile-circle">
-                <i class="fa-solid fa-user-graduate"></i>
-            </div>
-
-            <h3>Computer Science</h3>
-
-            <p>
-                Government Polytechnic Vaishali
-            </p>
-
-            <div class="status">
-                <span></span>
-                Currently Pursuing
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
+    </nav>
 
 
-<!-- ================= ABOUT ================= -->
+    <!-- ================= HOME ================= -->
 
-<section id="about" class="section">
+    <section class="hero" id="home">
 
-    <div class="container">
+        <div class="container">
 
-        <div class="section-title">
-            <p>GET TO KNOW ME</p>
-            <h2>About Me</h2>
-        </div>
+            <div class="hero-content">
 
-        <div class="about-grid">
+                <div class="hero-text">
 
-            <div class="about-text">
-
-                <h3>
-                    A passionate developer who loves building things.
-                </h3>
-
-                <p>
-                    I am Abhiraj Kumar, a Diploma student in Computer Science
-                    and Engineering at Government Polytechnic Vaishali, Bihar.
-                </p>
-
-                <p>
-                    My interests include web development, software development,
-                    Artificial Intelligence and Machine Learning. I like
-                    converting ideas into practical and useful applications.
-                </p>
-
-                <p>
-                    I am continuously learning new technologies and improving
-                    my problem-solving skills through projects and coding practice.
-                </p>
-
-            </div>
-
-            <div class="about-info">
-
-                <div class="info-card">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <div>
-                        <strong>Education</strong>
-                        <p>Diploma CSE</p>
+                    <div class="small-text">
+                        Hello, I'm
                     </div>
-                </div>
 
-                <div class="info-card">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <div>
-                        <strong>Location</strong>
-                        <p>Vaishali, Bihar, India</p>
-                    </div>
-                </div>
-
-                <div class="info-card">
-                    <i class="fa-solid fa-code"></i>
-                    <div>
-                        <strong>Focus</strong>
-                        <p>Web Development & AI/ML</p>
-                    </div>
-                </div>
-
-                <div class="info-card">
-                    <i class="fa-solid fa-envelope"></i>
-                    <div>
-                        <strong>Email</strong>
-                        <p>kumarabhiraj05981@gmail.com</p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= EDUCATION ================= -->
-
-<section id="education" class="section alternate">
-
-    <div class="container">
-
-        <div class="section-title">
-            <p>MY ACADEMIC JOURNEY</p>
-            <h2>Education</h2>
-        </div>
-
-        <div class="education-list">
-
-            <div class="education-card">
-
-                <div class="education-icon">
-                    <i class="fa-solid fa-laptop-code"></i>
-                </div>
-
-                <div class="education-content">
-
-                    <span class="education-year">
-                        2024 - Present
-                    </span>
+                    <h1>
+                        Abhiraj <span>Kumar</span>
+                    </h1>
 
                     <h3>
-                        Diploma in Computer Science & Engineering
+                        Diploma CSE Student & Developer
                     </h3>
 
+                    <p>
+                        I am a Computer Science Engineering student
+                        interested in programming, web development,
+                        software development and emerging technologies.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a
+                            class="btn btn-primary"
+                            href="My_RESUME (3).pdf"
+                            target="_blank">
+                            View Resume
+                        </a>
+
+                        <a
+                            class="btn btn-outline"
+                            href="My_RESUME (3).pdf"
+                            download>
+                            Download Resume
+                        </a>
+
+                        <a
+                            class="btn btn-outline"
+                            href="https://github.com/kumarabhiraj05981-dot"
+                            target="_blank">
+                            GitHub
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-image">
+
+                    <img
+                        src="my pic1111.jpeg"
+                        alt="Abhiraj Kumar">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>About Me</h2>
+
+                <p>Get to know me</p>
+
+            </div>
+
+
+            <div class="about-box">
+
+                <p>
+                    I am Abhiraj Kumar, a Diploma student in
+                    Computer Science and Engineering. I am passionate
+                    about learning programming, developing websites
+                    and building useful technology projects.
+                </p>
+
+                <p>
+                    I continuously work on improving my technical
+                    knowledge and practical development skills through
+                    projects and coding practice.
+                </p>
+
+
+                <div class="info-grid">
+
+                    <div class="info-item">
+                        <strong>Course:</strong>
+                        Diploma in Computer Science & Engineering
+                    </div>
+
+                    <div class="info-item">
+                        <strong>Status:</strong>
+                        Pursuing
+                    </div>
+
+                    <div class="info-item">
+                        <strong>Location:</strong>
+                        Vaishali, Bihar, India
+                    </div>
+
+                    <div class="info-item">
+                        <strong>Email:</strong>
+                        <a href="mailto:kumarabhiraj05981@gmail.com">
+                            kumarabhiraj05981@gmail.com
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= EDUCATION ================= -->
+
+    <section id="education">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Education</h2>
+
+                <p>My academic background</p>
+
+            </div>
+
+
+            <div class="education-grid">
+
+
+                <div class="education-card">
+
+                    <h3>Diploma</h3>
+
                     <h4>
-                        Government Polytechnic Vaishali, Bihar
+                        Computer Science & Engineering
                     </h4>
 
                     <p>
-                        Board: State Board of Technical Education, Bihar
+                        Government Polytechnic Vaishali, Bihar
                     </p>
+
+                    <p>
+                        SBTE Bihar
+                    </p>
+
+                    <p>
+                        Admission Year: 2024
+                    </p>
+
+                    <p>
+                        Status: Pursuing
+                    </p>
+
+                    <p class="marks">
+                        SGPA: 7.67 | 8.00 | 8.22 | 7.97
+                    </p>
+
+                </div>
+
+
+                <div class="education-card">
+
+                    <h3>Senior Secondary</h3>
+
+                    <h4>
+                        R.L.S.A. College
+                    </h4>
+
+                    <p>
+                        Premraj, Vaishali, Bihar
+                    </p>
+
+                    <p>
+                        Bihar Board
+                    </p>
+
+                    <p>
+                        Passing Year: 2024
+                    </p>
+
+                    <p class="marks">
+                        Percentage: 58.0%
+                    </p>
+
+                </div>
+
+
+                <div class="education-card">
+
+                    <h3>Matriculation</h3>
+
+                    <h4>
+                        Utkramit M.S. Afjalpur Puraina
+                    </h4>
+
+                    <p>
+                        Vaishali, Bihar
+                    </p>
+
+                    <p>
+                        Bihar Board
+                    </p>
+
+                    <p>
+                        Passing Year: 2022
+                    </p>
+
+                    <p class="marks">
+                        Percentage: 57.6%
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SEMESTER PERFORMANCE ================= -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Semester Performance</h2>
+
+                <p>Diploma academic performance</p>
+
+            </div>
+
+
+            <div class="semester-grid">
+
+                <div class="semester-card">
+
+                    <h3>1st Semester</h3>
 
                     <div class="sgpa">
-                        <span>1st: 7.67</span>
-                        <span>2nd: 8.00</span>
-                        <span>3rd: 8.22</span>
-                        <span>4th: 7.97</span>
+                        7.67
                     </div>
 
+                    <p>SGPA</p>
+
+                </div>
+
+
+                <div class="semester-card">
+
+                    <h3>2nd Semester</h3>
+
+                    <div class="sgpa">
+                        8.00
+                    </div>
+
+                    <p>SGPA</p>
+
+                </div>
+
+
+                <div class="semester-card">
+
+                    <h3>3rd Semester</h3>
+
+                    <div class="sgpa">
+                        8.22
+                    </div>
+
+                    <p>SGPA</p>
+
+                </div>
+
+
+                <div class="semester-card">
+
+                    <h3>4th Semester</h3>
+
+                    <div class="sgpa">
+                        7.97
+                    </div>
+
+                    <p>SGPA</p>
+
                 </div>
 
             </div>
 
+        </div>
 
-            <div class="education-card">
+    </section>
 
-                <div class="education-icon">
-                    <i class="fa-solid fa-school"></i>
+
+    <!-- ================= SKILLS ================= -->
+
+    <section id="skills">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Technical Skills</h2>
+
+                <p>Technologies and tools I work with</p>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+                <div class="skill">
+                    C
                 </div>
 
-                <div class="education-content">
+                <div class="skill">
+                    Java
+                </div>
 
-                    <span class="education-year">
-                        2024
-                    </span>
+                <div class="skill">
+                    Python
+                </div>
+
+                <div class="skill">
+                    HTML
+                </div>
+
+                <div class="skill">
+                    CSS
+                </div>
+
+                <div class="skill">
+                    JavaScript
+                </div>
+
+                <div class="skill">
+                    Node.js
+                </div>
+
+                <div class="skill">
+                    Express.js
+                </div>
+
+                <div class="skill">
+                    MongoDB
+                </div>
+
+                <div class="skill">
+                    Git
+                </div>
+
+                <div class="skill">
+                    GitHub
+                </div>
+
+                <div class="skill">
+                    VS Code
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PROJECTS ================= -->
+
+    <section id="projects">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Projects</h2>
+
+                <p>Some of my development work</p>
+
+            </div>
+
+
+            <div class="projects-grid">
+
+
+                <div class="project-card">
 
                     <h3>
-                        Senior Secondary (Class XII)
+                        Student Resources Hub
                     </h3>
 
-                    <h4>
-                        R.L.S.A. College, Premraj, Vaishali, Bihar
-                    </h4>
-
                     <p>
-                        Bihar Board
+                        A student-focused web platform for organizing
+                        academic resources such as notes, previous year
+                        questions, syllabus and study materials.
                     </p>
 
-                    <strong>
-                        58.0%
-                    </strong>
+                    <a
+                        class="btn btn-outline"
+                        href="https://github.com/kumarabhiraj05981-dot"
+                        target="_blank">
+                        View on GitHub
+                    </a>
 
                 </div>
 
-            </div>
 
-
-            <div class="education-card">
-
-                <div class="education-icon">
-                    <i class="fa-solid fa-school-flag"></i>
-                </div>
-
-                <div class="education-content">
-
-                    <span class="education-year">
-                        2022
-                    </span>
+                <div class="project-card">
 
                     <h3>
-                        Matriculation (Class X)
+                        INVESTIQ AI
                     </h3>
 
-                    <h4>
-                        Utkramit M.S. Afjalpur Puraina, Vaishali, Bihar
-                    </h4>
-
                     <p>
-                        Bihar Board
+                        A web project focused on presenting investment
+                        information and an AI-assisted user experience
+                        through an interactive dashboard.
                     </p>
 
-                    <strong>
-                        57.6%
-                    </strong>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= SKILLS ================= -->
-
-<section id="skills" class="section">
-
-    <div class="container">
-
-        <div class="section-title">
-            <p>WHAT I WORK WITH</p>
-            <h2>Technical Skills</h2>
-        </div>
-
-        <div class="skills-grid">
-
-            <div class="skill-card">
-                <div class="skill-icon">
-                    <i class="fa-solid fa-code"></i>
-                </div>
-                <h3>Programming</h3>
-                <p>C</p>
-                <p>Java</p>
-                <p>Python</p>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-icon">
-                    <i class="fa-solid fa-globe"></i>
-                </div>
-                <h3>Web Development</h3>
-                <p>HTML</p>
-                <p>CSS</p>
-                <p>JavaScript</p>
-                <p>Bootstrap</p>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-icon">
-                    <i class="fa-solid fa-server"></i>
-                </div>
-                <h3>Backend</h3>
-                <p>Node.js</p>
-                <p>Express.js</p>
-                <p>REST API</p>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-icon">
-                    <i class="fa-solid fa-database"></i>
-                </div>
-                <h3>Database</h3>
-                <p>MongoDB</p>
-                <p>MongoDB Atlas</p>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-icon">
-                    <i class="fa-brands fa-github"></i>
-                </div>
-                <h3>Tools</h3>
-                <p>Git</p>
-                <p>GitHub</p>
-                <p>VS Code</p>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-icon">
-                    <i class="fa-solid fa-cloud"></i>
-                </div>
-                <h3>Cloud</h3>
-                <p>Cloudinary</p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= PROJECTS ================= -->
-
-<section id="projects" class="section alternate">
-
-    <div class="container">
-
-        <div class="section-title">
-            <p>MY WORK</p>
-            <h2>Featured Projects</h2>
-        </div>
-
-        <div class="projects-grid">
-
-            <!-- Project 1 -->
-
-            <article class="project-card">
-
-                <div class="project-top">
-                    <i class="fa-solid fa-folder-open"></i>
-
                     <a
-                        href="https://github.com/kumarabhiraj05981-dot/student-resources-hub"
-                        target="_blank"
-                    >
-                        <i class="fa-brands fa-github"></i>
-                    </a>
-                </div>
-
-                <h3>Student Resources Hub</h3>
-
-                <p>
-                    A full-stack platform for students to access Notes,
-                    Previous Year Questions, Syllabus and E-Books.
-                </p>
-
-                <div class="project-tags">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>Node.js</span>
-                    <span>MongoDB</span>
-                </div>
-
-                <a
-                    href="https://github.com/kumarabhiraj05981-dot/student-resources-hub"
-                    target="_blank"
-                    class="project-link"
-                >
-                    View Project
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-
-            </article>
-
-
-            <!-- Project 2 -->
-
-            <article class="project-card">
-
-                <div class="project-top">
-                    <i class="fa-solid fa-folder-open"></i>
-
-                    <a
+                        class="btn btn-outline"
                         href="https://github.com/kumarabhiraj05981-dot"
-                        target="_blank"
-                    >
-                        <i class="fa-brands fa-github"></i>
+                        target="_blank">
+                        GitHub Profile
                     </a>
+
                 </div>
 
-                <h3>INVESTIQ AI</h3>
 
-                <p>
-                    An interactive web project focused on AI-assisted
-                    investment information and decision support.
-                </p>
+                <div class="project-card">
 
-                <div class="project-tags">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>Chart.js</span>
-                </div>
+                    <h3>
+                        Snake Water Gun
+                    </h3>
 
-                <a
-                    href="https://github.com/kumarabhiraj05981-dot"
-                    target="_blank"
-                    class="project-link"
-                >
-                    View Project
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-
-            </article>
-
-
-            <!-- Project 3 -->
-
-            <article class="project-card">
-
-                <div class="project-top">
-                    <i class="fa-solid fa-folder-open"></i>
+                    <p>
+                        A Python-based mini project demonstrating
+                        programming logic, conditions and user
+                        interaction.
+                    </p>
 
                     <a
+                        class="btn btn-outline"
                         href="https://github.com/kumarabhiraj05981-dot"
-                        target="_blank"
-                    >
-                        <i class="fa-brands fa-github"></i>
+                        target="_blank">
+                        GitHub Profile
                     </a>
+
                 </div>
 
-                <h3>Snake Water Gun</h3>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= RESUME ================= -->
+
+    <section id="resume">
+
+        <div class="container">
+
+            <div class="resume-box">
+
+                <h2>
+                    My Resume
+                </h2>
 
                 <p>
-                    A Python command-line game created to practice
-                    programming logic and conditional statements.
+                    You can view my resume online or download a copy.
                 </p>
 
-                <div class="project-tags">
-                    <span>Python</span>
-                    <span>CLI</span>
-                    <span>Logic</span>
+
+                <div class="hero-buttons"
+                     style="justify-content:center;">
+
+                    <a
+                        class="btn btn-primary"
+                        href="My_RESUME (3).pdf"
+                        target="_blank">
+                        📄 View Resume
+                    </a>
+
+
+                    <a
+                        class="btn btn-outline"
+                        href="My_RESUME (3).pdf"
+                        download>
+                        ⬇ Download Resume
+                    </a>
+
                 </div>
 
-                <a
-                    href="https://github.com/kumarabhiraj05981-dot"
-                    target="_blank"
-                    class="project-link"
-                >
-                    View Project
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= EXPERIENCE ================= -->
-
-<section id="experience" class="section">
-
-    <div class="container">
-
-        <div class="section-title">
-            <p>MY EXPERIENCE</p>
-            <h2>Internship</h2>
-        </div>
-
-        <div class="experience-card">
-
-            <div class="experience-icon">
-                <i class="fa-solid fa-robot"></i>
-            </div>
-
-            <div>
-
-                <span class="experience-date">
-                    2026
-                </span>
-
-                <h3>
-                    Artificial Intelligence & Machine Learning Intern
-                </h3>
-
-                <h4>
-                    AI/ML Internship
-                </h4>
-
-                <ul>
-                    <li>
-                        Gained practical exposure to Artificial Intelligence
-                        and Machine Learning concepts.
-                    </li>
-
-                    <li>
-                        Worked on project-based learning and applied
-                        AI/ML techniques.
-                    </li>
-                </ul>
-
             </div>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- ================= CERTIFICATIONS ================= -->
+    <!-- ================= CONTACT ================= -->
 
-<section id="certifications" class="section alternate">
+    <section id="contact">
 
-    <div class="container">
+        <div class="container">
 
-        <div class="section-title">
-            <p>LEARNING & DEVELOPMENT</p>
-            <h2>Certifications</h2>
-        </div>
+            <div class="section-title">
 
-        <div class="cert-grid">
+                <h2>Contact Me</h2>
 
-            <div class="cert-card">
-                <i class="fa-solid fa-certificate"></i>
-                <h3>Artificial Intelligence Certificate</h3>
-                <p>Artificial Intelligence</p>
+                <p>Let's connect</p>
+
             </div>
 
-            <div class="cert-card">
-                <i class="fa-solid fa-robot"></i>
-                <h3>AI/ML Internship Certificate</h3>
-                <p>Artificial Intelligence & Machine Learning</p>
-            </div>
 
-            <div class="cert-card">
-                <i class="fa-solid fa-award"></i>
-                <h3>NIELIT Certificate</h3>
-                <p>Information Technology</p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
+            <div class="contact-grid">
 
 
-<!-- ================= CONTACT ================= -->
+                <div class="contact-card">
 
-<section id="contact" class="section contact-section">
+                    <h3>
+                        Email
+                    </h3>
 
-    <div class="container">
+                    <p>
 
-        <div class="section-title">
-            <p>GET IN TOUCH</p>
-            <h2>Contact Me</h2>
-        </div>
+                        <a href="mailto:kumarabhiraj05981@gmail.com">
 
-        <div class="contact-box">
+                            kumarabhiraj05981@gmail.com
 
-            <h3>
-                Let's build something together.
-            </h3>
+                        </a>
 
-            <p>
-                I am open to learning opportunities, internships,
-                collaborations and interesting software projects.
-            </p>
+                    </p>
 
-            <a
-                href="mailto:kumarabhiraj05981@gmail.com"
-                class="btn primary-btn"
-            >
-                <i class="fa-solid fa-paper-plane"></i>
-                Send Email
-            </a>
+                </div>
 
-            <div class="contact-links">
 
-                <a href="tel:+916287275044">
-                    <i class="fa-solid fa-phone"></i>
-                    +91 6287275044
-                </a>
+                <div class="contact-card">
 
-                <a href="mailto:kumarabhiraj05981@gmail.com">
-                    <i class="fa-solid fa-envelope"></i>
-                    kumarabhiraj05981@gmail.com
-                </a>
+                    <h3>
+                        Phone
+                    </h3>
+
+                    <p>
+
+                        <a href="tel:+916287275044">
+
+                            +91 6287275044
+
+                        </a>
+
+                    </p>
+
+                </div>
+
+
+                <div class="contact-card">
+
+                    <h3>
+                        GitHub
+                    </h3>
+
+                    <p>
+
+                        <a
+                            href="https://github.com/kumarabhiraj05981-dot"
+                            target="_blank">
+
+                            @kumarabhiraj05981-dot
+
+                        </a>
+
+                    </p>
+
+                </div>
+
 
             </div>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- ================= FOOTER ================= -->
+    <!-- ================= FOOTER ================= -->
 
-<footer>
+    <footer>
 
-    <div class="container footer-container">
+        <p>
+            © 2026 <span>Abhiraj Kumar</span>.
+            All Rights Reserved.
+        </p>
 
-        <div>
-            <h3>Abhiraj<span>.</span></h3>
-            <p>
-                Diploma CSE Student | Developer | AI/ML Enthusiast
-            </p>
-        </div>
+        <p>
+            Built with HTML, CSS & JavaScript.
+        </p>
 
-        <div class="footer-social">
+    </footer>
 
-            <a
-                href="https://github.com/kumarabhiraj05981-dot"
-                target="_blank"
-            >
-                <i class="fa-brands fa-github"></i>
-            </a>
 
-            <a
-                href="https://www.linkedin.com/in/abhiraj-kumar-2a869a3b1/"
-                target="_blank"
-            >
-                <i class="fa-brands fa-linkedin"></i>
-            </a>
+    <!-- ================= JAVASCRIPT ================= -->
 
-            <a
-                href="https://leetcode.com/u/MR_ABH
+    <script>
+
+        function toggleMenu() {
+
+            const navLinks =
+                document.getElementById("navLinks");
+
+            navLinks.classList.toggle("active");
+
+        }
+
+
+        document.querySelectorAll(".nav-links a")
+            .forEach(function(link) {
+
+                link.addEventListener("click", function() {
+
+                    document
+                        .getElementById("navLinks")
+                        .classList.remove("active");
+
+                });
+
+            });
+
+    </script>
+
+</body>
+</html>
